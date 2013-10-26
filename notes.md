@@ -52,5 +52,19 @@ Or, in one line
 r = DataFrame(json.loads((requests.get('http://divvybikes.com/stations/json')).text)['stationBeanList'])
 ```
 
+Not Covered in the This Workshop: Loading Data from Databases. However, there are several built in methods for creating dataframes from SQL and NoSQL Databases.
+
 ## Cleaning Data
+1. Recieve Dataset
+2. Clean Dataset
+
+
+## Sorting Data
+One of the first thinks that you might 
+
+## Merging Data
+
+## Graphing Data
+
+## Mapping Data
 
