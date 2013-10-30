@@ -103,5 +103,5 @@ ax.plot(t, mu1)```
 
 
 ## Mapping Data
-Pandas/Matplot can also map data based on a shapefile. 
+Pandas/Matplot/Basemap can also map data based on a shapefile. Basemap is an extention for 
 
