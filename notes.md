@@ -103,5 +103,27 @@ ax.plot(t, mu1)```
 
 
 ## Mapping Data
-Pandas/Matplot/Basemap can also map data based on a shapefile. Basemap is an extention for 
+Pandas/Matplotlib/Basemap can also map data based on a shapefile. Basemap is an extention for matplotlib that utilizes the geos library to map cordinates, lines, etc. 
+
+Mac Users can install Geos/Basemap by running ```brew install geos``` and then ```python setup.py build``` and then ```python setup.py install``` in the directory in which they unzipped [Basemap](http://matplotlib.org/basemap/).
+
+To start with map data, you're going to want to have a basic map obj. This is a basic stere projection of Chicago.
+
+```
+def basic_map(ax=None,lllat=41.75,urlat=42,
+              lllon=-88,urlon=-87.5):
+    ##create polor sterographic Basemap instance
+    m = Basemap(ax=ax, projection='stere',
+                lon_0=(urlon + lllon) / 2,
+                lat_0=(urlat + lllat) / 2,
+                llcrnrlat = lllat, urcrnrlat=urlat,
+                llcrnrlon = lllon, urcrnrlon = urlon,
+                resolution = 'f')
+    m.drawcoastlines()
+    m.drawstates()
+    m.drawcountries()
+    return m
+m = basic_map()
+```
+Now, we want to 
 
