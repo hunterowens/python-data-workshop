@@ -125,5 +125,19 @@ def basic_map(ax=None,lllat=41.75,urlat=42,
     return m
 m = basic_map()
 ```
-Now, we want to 
+Now, we want to plot each divvy station point on the map. To do this, we iterate over the dataframe and then plot the lat/long.
 
+
+```
+for index, row in stations_dataframe.iterrows():
+    x,y = m(row['longitude'], row['latitude'])
+    m.plot(x,y,'k.',alpha=1)
+```
+
+That's it. (except, we may want to add, say, city of chicago streets.) To do that, we need to load a shape. [Open Street Map](http://openstreetmap.org) provides shapes for the state of illinois. Download those and unzip them, and add 
+
+```
+shapefile = ('./data/illinois-latest/illinois-latest')
+m.readshapefile(shapefile, 'roads')
+```
+which will render the streets. 
