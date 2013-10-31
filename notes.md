@@ -80,26 +80,32 @@ However, you may also want to concatenate data. For those of you familar with Nu
 ## Graphing Data
 Pandas integrates well with the standard MatPlotLib graphing libary. Let's say we want to get the average number of bikes in all the stations for each minute. 
 
-1. First, you need to convert the timestamps.
-```september_dataframe['timestamp'] = september_dataframe['timestamp'].apply(lambda t: pd.to_datetime(t))```
-
-2. Then, Group by minute value (i.e. how many minutes have occured since midnight) -.```
-station_monthly_groups = september_dataframe.groupby(september_dataframe['timestamp'].map(lambda t: 60*t.hour + t.minute))
+1. First, you need to convert the timestamps.2. 
+``
+september_dataframe['timestamp'] = september_dataframe['timestamp'].apply(lambda t: pd.to_datetime())
 ```
 
-3. Take the average of the group.
-```station_monthly_averages = station_monthly_groups.mean()
-station_monthly_std = station_monthly_groups["bikes"].std()``` 
+2. Then, Group by minute value (i.e. how many minutes have occured since midnight)3. -.
+```
+station_monthly_groups = september_dataframe.groupby(september_dataframe['timestamp'].map(lambda t: 60*t.hour + t.minute)
+```
+
+3. Take the average of the goup
+
+```
+station_monthly_averages = station_monthly_groups.mean()
+station_monthly_std = station_monthly_groups["bikes"]std(
+``` 
 
 4. Time readability conversions.
 ```times = station_monthly_averages.index.map(minute_into_hour)
-times_std = station_monthly_std.index.map(minute_into_hour)```
+times_std = station_monthly_std.index.map(minute_into_hor)```
 
-5. Add to dataframe. 
+5. Add to dataf66. . ame. 
 ```station_monthly_averages["timestamp"] = times
-station_monthly_averages["bikes_available_std"] = station_monthly_std```
+station_monthly_averages["bikes_available_std"] = station_monthly_td```
 
-6. And, plot. 
+6. And, 7. lot. 
 ```grid_size = (1,1)
 count = 1
 nb_plots_per_page = 1
